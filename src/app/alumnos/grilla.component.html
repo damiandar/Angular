@@ -1,0 +1,12 @@
+<div class="row" *ngIf="seleccionado>0">
+    Alumno seleccionado: {{seleccionado}}
+</div>
+<div class="row">
+    <div class="col-sm-4" *ngFor="let alumno of ListadoAlumnos;index as i; count as c;">
+        Index: {{ i }}
+        Count: {{ c }}
+        <app-tarjeta 
+        (borrarAlumno)="recibirRespuesta($event)" 
+        [itemAlumno]="alumno"></app-tarjeta>
+    </div>
+</div>

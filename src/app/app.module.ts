@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { ProfesoresComponent } from './profesores/profesores.component';
 import { FormularioAlumnoComponent } from './alumnos/formulario-alumno/formulario-alumno.component';
+import { GrillaComponent } from './alumnos/grilla.component';
+import { TarjetaComponent } from './alumnos/tarjeta.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormularioAlumnoComponent } from './alumnos/formulario-alumno/formulari
     FetchDataComponent,
     AlumnosComponent,
     ProfesoresComponent,
-    FormularioAlumnoComponent
+    FormularioAlumnoComponent,
+    GrillaComponent,
+    TarjetaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +40,8 @@ import { FormularioAlumnoComponent } from './alumnos/formulario-alumno/formulari
       { path: 'alumnos', component: AlumnosComponent},
       { path: 'profesores', component: ProfesoresComponent},
       { path: 'alumno-nuevo',component:FormularioAlumnoComponent},
-      { path: 'alumno-editar/:id',component:FormularioAlumnoComponent}
+      { path: 'alumno-editar/:id',component:FormularioAlumnoComponent},
+      { path: 'alumnos-grilla',component:GrillaComponent}
     ])
   ],
   providers: [],

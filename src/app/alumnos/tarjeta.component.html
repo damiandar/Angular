@@ -1,0 +1,17 @@
+<div class="card">
+    <!--
+        <img src="..." class="card-img-top" alt="...">
+    -->
+    <div class="card-body">
+        {{itemAlumno | json}}
+      <h5 class="card-title">{{itemAlumno.nombre}} {{ itemAlumno.apellido}}</h5>
+      <p class="card-text">{{itemAlumno.promedio}}</p>
+      <p class="card-text">{{itemAlumno.fecha}}</p>
+      <p class="card-text">{{itemAlumno.pais.descripcion}}</p>
+      <p class="card-text"></p>
+        <button (click)="borrar(itemAlumno.id)" class="btn btn-primary">
+          Seleccionar
+        </button>
+    </div>
+
+</div>
