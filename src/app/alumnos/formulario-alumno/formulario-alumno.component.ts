@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup} from '@angular/forms';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 import {Alumno,Pais} from '../../modelos/alumno';
 import {ActivatedRoute,Router} from '@angular/router';
 import {AlumnoService} from '../../servicios/alumno.service';
@@ -28,9 +28,12 @@ export class FormularioAlumnoComponent implements OnInit {
 
   ngOnInit() { 
     //debo agregar todos los controles a medida que los agrego en el html
+    //utilizo el formbuilder para construir el formulario
+    //pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+    //,[Validators.email]
     this.formAlumno=this.fb.group({
-      nombre:'',
-      apellido:'',
+      nombre:['',[Validators.required,Validators.minLength(8)]],
+      apellido:[''],
       fecha:'',
       pais:[null],
       estado:'',
