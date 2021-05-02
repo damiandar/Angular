@@ -1,11 +1,41 @@
-<h1>Profesores </h1>
-<table class="table">
+<p>{{Titulo}}</p>
+
+<button [routerLink]='["/profesor-nuevo"]' class="btn btn-warning">Nuevo</button>
+<input [placeholder]="ingreso" type="text" [(ngModel)]="textoingresado" class="form-control" />
+{{textoingresado}}
+<p *ngIf="!(ListadoProfesores.length>0)" >La Lista de profesores esta vacia.</p>
+
+<table class="table" *ngIf="ListadoProfesores.length>0">
+    <thead>
+        <th>Legajo</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Mail</th>
+        <th></th>
+    </thead>
+    <tbody>
     <tr *ngFor="let profe of ListadoProfesores">
-        <td>{{profe.Legajo}}</td>
-        <td>{{profe.Nombre}}</td>
-        <td>{{profe.Apellido}}</td>
         <td>
-            <button [routerLink]="['/profesores-form']" class="btn btn-success">Editar</button>
+            <span [ngStyle]="{'background-color': profe.legajo===842837 ? 'red' : 'green'}" >
+                {{profe.legajo}}
+            </span>
+        </td>
+        <td>
+            <span [ngClass]="{'nombreletra': profe.nombre==='Daniela'  }">
+                {{profe.nombre}}
+            </span>
+        </td>
+        <td>{{profe.apellido}}</td>
+        <td>{{profe.mail | uppercase  }}</td>
+        <td>
+            <button [routerLink]='["/profesores-editar/" + profe.id ]' class="btn btn-primary">
+                Editar
+            </button>
+
+            <button class="btn btn-success"  (click)="MostrarMensaje()" >
+                Mostrar Mensaje
+            </button>
         </td>
     </tr>
+</tbody>
 </table>

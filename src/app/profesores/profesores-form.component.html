@@ -1,0 +1,35 @@
+<p>Profesores nuevo</p>
+
+<form [formGroup]="formProfesor" (ngSubmit)="GuardarProfesor()" autocomplete="off" >
+    <fieldset>
+        <div class="form-group">
+            <label for="legajo">Legajo</label>
+            <input type="text" formControlName="legajo" id="legajo"/>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" formControlName="nombre" id="nombre"/>
+            <span *ngIf="formProfesor.get('nombre').errors?.required">
+                el campo es requerido
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" formControlName="apellido" id="apellido"/>
+        </div>
+        <div class="form-group">
+            <label for="mail">Mail</label>
+            <input type="email" formControlName="mail" id="mail"
+             [ngClass]="{'errormail': 
+                (!formProfesor.get('mail').valid
+                && ( formProfesor.get('mail').touched  || formProfesor.get('mail').dirty  )
+
+                )
+            }"
+            />
+        </div>
+
+        <button class="btn btn-danger" [disabled]="!formProfesor.valid" type="submit">Guardar</button>
+    </fieldset>
+
+</form>
