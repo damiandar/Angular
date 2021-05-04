@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { ProfesoresComponent } from './profesores/profesores.component';
+import { ProfesoresFormComponent} from './profesores/profesores-form.component';
 import { FormularioAlumnoComponent } from './alumnos/formulario-alumno/formulario-alumno.component';
 import { GrillaComponent } from './alumnos/grilla.component';
 import { TarjetaComponent } from './alumnos/tarjeta.component';
@@ -24,6 +25,7 @@ import { TarjetaComponent } from './alumnos/tarjeta.component';
     FetchDataComponent,
     AlumnosComponent,
     ProfesoresComponent,
+    ProfesoresFormComponent,
     FormularioAlumnoComponent,
     GrillaComponent,
     TarjetaComponent

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  rutaimagen:'../assets/logo_azul.png',
 };
