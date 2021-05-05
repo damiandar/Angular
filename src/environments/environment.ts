@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  rutaimagen:'../assets/logo_rojo.png',
+  rutaimagen:'assets/logo_rojo.png',
 
 };
 

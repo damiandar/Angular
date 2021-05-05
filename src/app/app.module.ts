@@ -15,6 +15,8 @@ import { ProfesoresFormComponent} from './profesores/profesores-form.component';
 import { FormularioAlumnoComponent } from './alumnos/formulario-alumno/formulario-alumno.component';
 import { GrillaComponent } from './alumnos/grilla.component';
 import { TarjetaComponent } from './alumnos/tarjeta.component';
+//agrego linea para ejecutarlo desde mi pc
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { TarjetaComponent } from './alumnos/tarjeta.component';
       { path: 'alumnos-grilla',component:GrillaComponent}
     ])
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
