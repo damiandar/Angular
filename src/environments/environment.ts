@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   rutaimagen:'assets/logo_rojo.png',
-
+  apiUrl: 'http://localhost:5000/api/'
 };
 
 /*
