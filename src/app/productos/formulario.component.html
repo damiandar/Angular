@@ -1,0 +1,56 @@
+<h1>{{titulo}}</h1>
+<form [formGroup]="formProducto" (ngSubmit)="GuardarFormulario()" class="form-horizontal">
+   {{ formProducto.value | json}}
+   {{ mostrarTitulo() }}
+    <fieldset>
+        <!--.has-error {border-color: red;} No se utiliza más-->
+        <div class="form-group" >
+            <label for="nombre" class="col-md-2-control-label">Nombre</label>
+            <div class="col-md-8">
+                <input class="form-control" 
+                    id="nombre"
+                    type="text"
+                    formControlName="nombre"
+                    [ngClass]="{ 'is-invalid': 
+                    (
+                        !formProducto.get('nombre').valid  && 
+                        (formProducto.get('nombre').touched || formProducto.get('nombre').dirty )
+                    ) 
+                    } "
+                />
+                <span class="help-block" 
+                *ngIf="( formProducto.get('nombre').touched || 
+                formProducto.get('nombre').dirty 
+                         && !formProducto.valid ) " >
+                <span *ngIf="formProducto.get('nombre').errors?.required"   >
+                  El campo es requerido
+                </span>
+            </span>
+    
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="precio" class="col-md-2-control-label">Precio</label>
+            <div class="col-md-8">
+                <input class="form-control" 
+                id="precio"
+                type="text"
+                formControlName="precio" />
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="categoria" class="col-md-2-control-label">Categoria</label>
+            <div class="col-md-8">
+                <select formControlName="categoria" [compareWith]="compareFn" class="form-control" > 
+                    <option *ngFor="let p of categorias" [ngValue]="p"  >
+                        {{p.descripcion}}
+                    </option>
+                </select>
+            </div>
+        </div> 
+        <div class="col-lg-8">
+            <button type="submit" [disabled]="!formProducto.valid" class="btn btn-primary float-right" style="margin-left: 20px;" >Guardar</button>
+            <button [routerLink]='["/producto-listado"]' class="btn btn-outline-secondary float-right">Cancelar</button>
+        </div>
+    </fieldset>
+</form>
